@@ -29,13 +29,10 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp site/index.html _site/index.html
-          cp site/assets/index-BilWtf6R.css _site/assets/
+          cp site/assets/index-DZ9bBuFe.css _site/assets/
           touch _site/.nojekyll
-          : > _site/assets/index-U4vovU6n.js
-          for part in site/parts/*.b64; do
-            base64 --decode "$part" >> _site/assets/index-U4vovU6n.js
-          done
-          test "$(wc -c < _site/assets/index-U4vovU6n.js)" -eq 1626598
+          cat site/parts/index-CLe3AxvC.js.part-* > _site/assets/index-CLe3AxvC.js
+          test "$(wc -c < _site/assets/index-CLe3AxvC.js)" -eq 1626915
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
