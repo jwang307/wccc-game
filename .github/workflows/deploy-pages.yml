@@ -29,10 +29,11 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp site/index.html _site/index.html
-          cp site/assets/index-DZ9bBuFe.css _site/assets/
+          cp site/assets/index-UEc8n5pP.css _site/assets/
           touch _site/.nojekyll
-          cat site/parts/index-CLe3AxvC.js.part-* > _site/assets/index-CLe3AxvC.js
-          test "$(wc -c < _site/assets/index-CLe3AxvC.js)" -eq 1626915
+          cat site/parts/index-B7SxqR06.js.gz.part-* > /tmp/game-bundle.js.gz
+          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-B7SxqR06.js
+          test "$(wc -c < _site/assets/index-B7SxqR06.js)" -eq 1626915
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
