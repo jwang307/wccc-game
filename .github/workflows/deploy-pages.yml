@@ -1,19 +1,15 @@
 name: Deploy game to GitHub Pages
-
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: true
-
 jobs:
   deploy:
     environment:
@@ -21,23 +17,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out compiled game
-        uses: actions/checkout@v4
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Assemble site
-        run: |
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - run: |
           mkdir -p _site/assets
           cp site/index.html _site/index.html
-          cp site/assets/index-UEc8n5pP.css _site/assets/
+          cp site/assets/index-DYzLEMuc.css _site/assets/
           touch _site/.nojekyll
-          cat site/parts/index-B7SxqR06.js.gz.part-* > /tmp/game-bundle.js.gz
-          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-B7SxqR06.js
-          test "$(wc -c < _site/assets/index-B7SxqR06.js)" -eq 1626915
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+          cat site/parts/index-CapWxO5a.js.gz.part-* > /tmp/game-bundle.js.gz
+          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-CapWxO5a.js
+          test "$(wc -c < _site/assets/index-CapWxO5a.js)" -eq 1628007
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
