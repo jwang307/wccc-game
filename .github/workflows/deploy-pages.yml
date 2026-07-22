@@ -22,11 +22,11 @@ jobs:
       - run: |
           mkdir -p _site/assets
           cp site/index.html _site/index.html
-          cp site/assets/index-D3GIaxyI.css _site/assets/
+          cp site/assets/index-DM-N3H1R.css _site/assets/
           touch _site/.nojekyll
-          cat site/parts/index-CbGlcNPD.js.gz.part-* > /tmp/game-bundle.js.gz
-          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-CbGlcNPD.js
-          test "$(wc -c < _site/assets/index-CbGlcNPD.js)" -eq 1629085
+          cat site/parts/index-BiuBanG4.js.gz.part-* > /tmp/game-bundle.js.gz
+          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-BiuBanG4.js
+          test "$(wc -c < _site/assets/index-BiuBanG4.js)" -eq 1629085
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
