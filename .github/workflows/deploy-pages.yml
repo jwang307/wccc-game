@@ -24,9 +24,9 @@ jobs:
           cp site/index.html _site/index.html
           cp site/assets/index-DYzLEMuc.css _site/assets/
           touch _site/.nojekyll
-          cat site/parts/index-CapWxO5a.js.gz.part-* > /tmp/game-bundle.js.gz
-          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-CapWxO5a.js
-          test "$(wc -c < _site/assets/index-CapWxO5a.js)" -eq 1628007
+          cat site/parts/index-ijif6-Ub.js.gz.part-* > /tmp/game-bundle.js.gz
+          gzip -dc /tmp/game-bundle.js.gz > _site/assets/index-ijif6-Ub.js
+          test "$(wc -c < _site/assets/index-ijif6-Ub.js)" -eq 1628651
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
